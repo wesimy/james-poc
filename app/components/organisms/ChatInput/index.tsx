@@ -22,7 +22,7 @@ export default function ChatInput() {
                     //{ rotateY: `${interpolate(animatedValue.value, [0, 100], [0, -45])}deg` },
 
                 ],
-            opacity: interpolate(animatedValue.value, [0, 100], [1, .9])
+            opacity: interpolate(animatedValue.value, [0, 100], [1, .95])
         }
     })
 
