@@ -17,26 +17,26 @@ const AnimatedGradient = () => {
         return [topColor.value, bottomColor.value];
     }, []);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setInterval(() => {
-            topColor.value = withTiming(getBiasedRandomColor([
-                { r: 221, g: 202, b: 176 },
-                { r: 221, g: 202, b: 176 },
-                { r: 223, g: 227, b: 204 },
-                { r: 224, g: 192, b: 180 },
-            ]), { duration: 2000 });
+    //     setInterval(() => {
+    //         topColor.value = withTiming(getBiasedRandomColor([
+    //             { r: 221, g: 202, b: 176 },
+    //             { r: 221, g: 202, b: 176 },
+    //             { r: 223, g: 227, b: 204 },
+    //             { r: 224, g: 192, b: 180 },
+    //         ]), { duration: 2000 });
 
-            bottomColor.value = withTiming(getBiasedRandomColor([
-                { r: 255, g: 235, b: 219 },
-                { r: 255, g: 235, b: 219 },
-                { r: 249, g: 241, b: 232 },
-                { r: 251, g: 246, b: 241 },
+    //         bottomColor.value = withTiming(getBiasedRandomColor([
+    //             { r: 255, g: 235, b: 219 },
+    //             { r: 255, g: 235, b: 219 },
+    //             { r: 249, g: 241, b: 232 },
+    //             { r: 251, g: 246, b: 241 },
 
-            ]), { duration: 2000 });
+    //         ]), { duration: 2000 });
 
-        }, 4000)
-    }, [])
+    //     }, 4000)
+    // }, [])
     return (
         <>
             <Canvas style={{ flex: 1, opacity: 1 }} >

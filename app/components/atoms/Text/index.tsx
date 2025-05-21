@@ -1,14 +1,17 @@
 import React from 'react';
-import { Text as RNText, TextProps, TextStyle } from 'react-native';
+import { TextProps, TextStyle } from 'react-native';
+import Animated, { AnimatedProps } from 'react-native-reanimated';
 
-type CustomTextProps = TextProps & {
+type CustomTextProps = AnimatedProps<TextProps> & {
   style?: TextStyle | TextStyle[];
+  className?: string
 };
 
-export default function Text({ style, ...props }: CustomTextProps) {
+export default function Text({ style = {}, className = '', ...props }: CustomTextProps) {
   return (
-    <RNText
+    <Animated.Text
       {...props}
+      className={['text-dark', className].filter(Boolean).join(' ')}
       style={[{ fontFamily: 'Poppins' }, style]}
     />
   );
