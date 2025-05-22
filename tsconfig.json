@@ -7,7 +7,6 @@
       "@screens/*": ["screens/*"],
       "@context/*": ["context/*"],
       "@types/*": ["types/*"]
-      
     }
   }
 }

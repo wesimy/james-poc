@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, TextInput } from 'react-native';
 
-import StatefulTextInput from '@components/molcules/StatefulTextInput';
 import Text from "@components/atoms/Text";
 import Button from "@components/atoms/Button";
 import DataBoosterScreen from '@screens/DataBoosterScreen';
 import GlassSurface from '@components/atoms/GlassSurface';
+import StatefulTextInput from '@components/molcules/StatefulTextInput';
+import InvoiceCard from '@components/organisms/InvoiceCard';
+import SuccessCard from '@components/organisms/SuccessCard';
 
 // Define the component map type
 type ComponentMapType = {
@@ -27,15 +29,17 @@ interface DynamicComponentRendererProps {
 
 // Map of component types to actual React Native components
 const ComponentMap: ComponentMapType = {
-  InvoiceCard: Text,
-  FormCard: View,
+  InvoiceCard: InvoiceCard,
+  FormCard: GlassSurface,
   View: View,
   Text: Text,
   Button: Button,
   Image: Image,
   TextInput: StatefulTextInput,
   TouchableOpacity: TouchableOpacity,
-  DataJourney: DataBoosterScreen
+  DataJourney: DataBoosterScreen,
+  SuccessCard: SuccessCard
+
 };
 
 // Helper function to handle actions
@@ -57,7 +61,7 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
     return <Text>{componentData}</Text>;
   }
 
-  
+
 
   const { type, props = {}, children } = componentData;
 
@@ -82,6 +86,10 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
     mergedProps.parentProps = parentProps;
   }
 
+  if (type === 'FormCard') {
+    mergedProps.parentProps = parentProps;
+    mergedProps.className = 'm-4'
+  }
   // if  (type === 'View') {
 
   // }
@@ -91,19 +99,17 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
     <Component  {...mergedProps}>
       {Array.isArray(children)
         ?
-        <View className='p-8'>
-          <GlassSurface className='flex w-full items-strech gap-4 p-8'>
-            {children.map((child, index) => (
+        <View className='m-4 gap-6'>
+          {children.map((child, index) => (
 
-              <DynamicComponentRenderer
-                key={index}
-                componentData={child}
-                parentProps={parentProps}
-              />
+            <DynamicComponentRenderer
+              key={index}
+              componentData={child}
+              parentProps={parentProps}
+            />
 
-            ))
-            }
-          </GlassSurface>
+          ))
+          }
         </View>
         : children
           ?
@@ -112,6 +118,7 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
             componentData={children}
             parentProps={parentProps}
           />
+
 
           : null
       }

@@ -8,6 +8,9 @@ import Text from '@components/atoms/Text'
 
 import ActionButton from '@components/atoms/ActionButton/ActionButton'
 import Icon from '@react-native-vector-icons/lucide';
+import SuccessCard from '@components/organisms/SuccessCard'
+import { Flow } from 'react-native-animated-spinkit'
+
 
 
 export default function MainScreen() {
@@ -107,7 +110,7 @@ export default function MainScreen() {
                         isLoading &&
                         <>
                             <MotiView
-                                className="flex-1 items-center justify-center" key="loading"
+                                className="flex-1 flex-row items-center justify-center" key="loading"
                                 from={{
                                     opacity: 0,
                                     scale: 1,
@@ -124,7 +127,7 @@ export default function MainScreen() {
                                     translateY: 0
                                 }}
                             >
-                                <Text>{Boolean(sessionId) ? 'Thinking...' : 'Starting Session...'}</Text>
+                                <Text className='font-medium text-lg'>{Boolean(sessionId) ? 'Thinking' : 'Starting Session'}</Text><View className='h-4 mx-2 justify-end'><Flow size={12} /></View>
                             </MotiView>
 
 
@@ -136,7 +139,7 @@ export default function MainScreen() {
             </View>
 
 
-{
+            {
                 Boolean(sessionId) &&
                 <MotiView className='absolute bottom-12'
                     from={{
@@ -162,7 +165,7 @@ export default function MainScreen() {
                     </ActionButton>
                 </MotiView>
             }
-            
+
             <ChatInput />
         </View>
     )

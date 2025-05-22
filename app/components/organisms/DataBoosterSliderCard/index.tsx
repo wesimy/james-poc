@@ -43,7 +43,6 @@ export default function DataBoosterSliderCard({ dataset, onSubmit }: DataBooster
   }, [selectedBooster]);
 
 
-
   return (
     <>
       <View className='w-full flex items-center justify-center gap-8'>
