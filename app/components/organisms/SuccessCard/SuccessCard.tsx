@@ -9,7 +9,7 @@ interface SuccessCard {
 }
 export default function SuccessCard({ message, title }: SuccessCard) {
     return (
-        <View className='flex-1 items-center justify-center gap-8'>
+        <View className='flex-1 items-center justify-center gap-8 min-h-40'>
 
             <CheckMark />
             <View className='items-center gap-4 p-4 w-full'>

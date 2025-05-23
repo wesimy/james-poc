@@ -10,6 +10,7 @@ module.exports = {
           '@screens': './app/screens',
           '@context': './app/context',
           '@types': './app/types',
+          '@assets': './app/assets',
         },
       },
     ],

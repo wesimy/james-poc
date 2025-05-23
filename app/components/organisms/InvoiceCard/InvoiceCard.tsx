@@ -13,7 +13,7 @@ status: string;
 export default function InvoiceCard({ amount, due_date, invoice_number, issued_date, status }:InvoiceCard) {
     
   return (
-    <View className="p-4 gap-y-4 bg-white/80 rounded-lg">
+    <View className="p-4 gap-y-4 bg-white/70 rounded-lg mx-4">
       
       {/* Header */}
       <View className="flex-row justify-between items-start">

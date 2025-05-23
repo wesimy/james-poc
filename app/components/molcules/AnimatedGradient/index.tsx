@@ -44,7 +44,7 @@ const AnimatedGradient = () => {
                     <LinearGradient
                         start={vec(0, 0)}
                         end={vec(width, height)}
-                        colors={colors}
+                        colors={['#FFEBDB', '#DDCAB0']}
                     />
                 </Rect>
             </Canvas>

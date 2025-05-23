@@ -9,6 +9,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { APIProvider } from "@context/APIProvider";
 import { PortalProvider } from "@gorhom/portal";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import Backdrop from "@components/molcules/Backdrop";
 
 function App(): React.JSX.Element {
 
@@ -22,7 +23,7 @@ function App(): React.JSX.Element {
       <GestureHandlerRootView className="flex flex-1" >
       <BottomSheetModalProvider>
       <PortalProvider>
-        <View className="flex-1 absolute w-full h-full"><AnimatedGradient /></View>
+        <View className="flex-1 absolute w-full h-full"><Backdrop /></View>
         <View className="flex-1 absolute w-full h-full"><MainScreen /></View>
       </PortalProvider>
       </BottomSheetModalProvider>

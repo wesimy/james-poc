@@ -213,7 +213,7 @@ export default function ChatInput() {
                     }}
                 >
                     <GestureDetector gesture={swipeGesture}>
-                        <View className='flex-1' style={{paddingTop: insets.top}}>
+                        <View className='flex-1' style={{ paddingTop: insets.top }}>
 
                             <Formik
                                 innerRef={formikRef}
@@ -224,12 +224,24 @@ export default function ChatInput() {
                                     <View className='px-8 py-16'>
                                         <TextInput
                                             onChangeText={(text) => {
-                                                handleChange('message')(text);  // Formik update
-                                                storeData('message', values.message)
+                                                if (text.endsWith('\n')) {
+                                                    handleSubmit();
+                                                } else {
+                                                    handleChange('message')(text);  // Formik update
+                                                    storeData('message', values.message)
+                                                }
                                             }}
                                             onBlur={handleBlur('message')}
                                             value={values.message}
-                                            multiline placeholderTextColor='#ECDCC9' placeholder='Ask anything...' className='text-[#ECDCC9] text-4xl w-full max-h-full' />
+                                            //onSubmitEditing={() => handleSubmit()}
+                                            multiline={true}
+                                            placeholderTextColor='#fffcf7'
+                                            placeholder='Ask anything...'
+                                            style={{
+                                                textAlignVertical: 'top',
+                                            }}
+
+                                            className='text-[#fffcf7] text-4xl w-full max-h-full' />
                                     </View>
                                 )}
                             </Formik>

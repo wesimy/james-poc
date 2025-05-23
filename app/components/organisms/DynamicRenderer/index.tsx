@@ -30,7 +30,7 @@ interface DynamicComponentRendererProps {
 // Map of component types to actual React Native components
 const ComponentMap: ComponentMapType = {
   InvoiceCard: InvoiceCard,
-  FormCard: GlassSurface,
+  FormCard: View,
   View: View,
   Text: Text,
   Button: Button,
@@ -61,8 +61,6 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
     return <Text>{componentData}</Text>;
   }
 
-
-
   const { type, props = {}, children } = componentData;
 
   // Get the component from our map
@@ -88,8 +86,14 @@ const DynamicComponentRenderer: React.FC<DynamicComponentRendererProps> = ({ com
 
   if (type === 'FormCard') {
     mergedProps.parentProps = parentProps;
+    mergedProps.className = 'm-4 rounded-2xl bg-white/30'
+  }
+  
+  if (type === 'Text') {
+    mergedProps.parentProps = parentProps;
     mergedProps.className = 'm-4'
   }
+
   // if  (type === 'View') {
 
   // }

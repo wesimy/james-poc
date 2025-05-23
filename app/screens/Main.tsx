@@ -127,7 +127,7 @@ export default function MainScreen() {
                                     translateY: 0
                                 }}
                             >
-                                <Text className='font-medium text-lg'>{Boolean(sessionId) ? 'Thinking' : 'Starting Session'}</Text><View className='h-4 mx-2 justify-end'><Flow size={12} /></View>
+                                <Text className='font-light text-lg'>{Boolean(sessionId) ? 'Thinking' : 'Starting Session'}</Text><View className='h-4 mx-2 justify-end'><Flow size={12} /></View>
                             </MotiView>
 
 
